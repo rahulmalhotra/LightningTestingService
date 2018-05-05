@@ -1,15 +1,26 @@
-<aura:component >	
+<aura:component controller="LTSDemoCtrl" >	
     <h1>Basic Component for Lightning Testing Service</h1>
 
     <aura:attribute name="myName" type="String"></aura:attribute>
+    <aura:attribute name="accountsList" type="List"></aura:attribute>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" ></aura:handler>
     <aura:method name="awesomeFunction" action="{!c.buttonClicked}"></aura:method>
-
+    <aura:method name="fetchAccounts" action="{!c.fetchAccounts}"></aura:method>
 
     <div class="slds-box">
         {!v.myName}
         <br /><br />
-        <lightning:button label="Click Me"  name="Click Me" onclick="{!c.buttonClicked}" />
+        <lightning:button label="Click Me"  name="ClickMe" onclick="{!c.buttonClicked}" />
+    </div>
+
+    <div class="slds-box">
+        <lightning:button label="Fetch Accounts" name="FetchAccounts" onclick="{!c.fetchAccounts}" />
+        <br /><br />
+        <ul class="slds-list--vertical slds-has-cards--space">
+            <aura:iteration items="{!v.accountsList}" var="account">
+                <li class="slds-list__item">{!account.Name}</li>
+            </aura:iteration>
+        </ul>
     </div>
 
 </aura:component>

@@ -27,10 +27,16 @@ describe("Lightning Component Testing Examples", function() {
             .then(function(component) {
 	           	component.awesomeFunction();
                 expect(component.get("v.myName")).toContain("Awesome");
-                done();
-            }).catch(function(e) {
+                $T.run(component.fetchAccounts);
+                return $T.waitFor(function(){
+                    return component.get("v.accountsList").length === 5;
+                })
+             }).then(function(response) {
+             	done();
+             }).catch(function(e) {
                 done.fail(e);
             });        	
         });
+
     });
 });
