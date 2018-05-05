@@ -10,15 +10,27 @@ describe("Lightning Component Testing Examples", function() {
         $T.clearRenderedTestComponents();
     });
 
-    describe('Rendering c:ltsComp', function(){
-        it('String contains text', function(done) {
+    describe("Rendering c:ltsComp", function(){
+
+        it("String contains text", function(done) {
             $T.createComponent("c:ltsComp", {}, true)
             .then(function(component) {
-                expect(component.get('v.myName')).toContain("Rahul");
+                expect(component.get("v.myName")).toContain("Rahul");
                 done();
             }).catch(function(e) {
                 done.fail(e);
             });
+        });
+
+        it("Checking change on Button click", function(done) {
+            $T.createComponent("c:ltsComp", {}, true)
+            .then(function(component) {
+	           	component.awesomeFunction();
+                expect(component.get("v.myName")).toContain("Awesome");
+                done();
+            }).catch(function(e) {
+                done.fail(e);
+            });        	
         });
     });
 });

@@ -3,7 +3,13 @@
 
     <aura:attribute name="myName" type="String"></aura:attribute>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" ></aura:handler>
+    <aura:method name="awesomeFunction" action="{!c.buttonClicked}"></aura:method>
 
-    {!v.myName}
+
+    <div class="slds-box">
+        {!v.myName}
+        <br /><br />
+        <lightning:button label="Click Me"  name="Click Me" onclick="{!c.buttonClicked}" />
+    </div>
 
 </aura:component>
