@@ -1,3 +1,9 @@
 <aura:component >	
     <h1>Basic Component for Lightning Testing Service</h1>
+
+    <aura:attribute name="myName" type="String"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" ></aura:handler>
+
+    {!v.myName}
+
 </aura:component>

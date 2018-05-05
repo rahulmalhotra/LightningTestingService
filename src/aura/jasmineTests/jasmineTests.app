@@ -1,9 +1,7 @@
 <aura:application >
 
     <c:lts_jasmineRunner testFiles="{!join(',', 
-    	$Resource.jasmineHelloWorldTests,
-		$Resource.jasmineExampleTests,
-		$Resource.jasmineLightningDataServiceTests
+    	$Resource.ltsDemoTests
     )}" />
 
 </aura:application>

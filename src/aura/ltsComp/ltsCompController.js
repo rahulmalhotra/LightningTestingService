@@ -1,5 +1,5 @@
 ({
-	init: function(component, event, helper) {
-		
+	doInit: function(component, event, helper) {
+		component.set('v.myName', 'Rahul Malhotra');
 	}
 })
